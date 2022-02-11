@@ -52,6 +52,12 @@ for file in sourcefiles:
 '''
 CSV -> PDF
 '''
+'''
+>> pip3 install pdfkit
+>>ubuntu : sudo apt-get install wkhtmltopdf
+>>mac : brew install Caskroom/cask/wkhtmltopdf
+'''
+
 import os
 import glob
 import pandas as pd
