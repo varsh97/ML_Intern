@@ -1,0 +1,68 @@
+#For my first task, I had to create huge data sets containing both PII as well as non-sensitive information.
+#I used the 'Faker' module in python to randomly generate profile information. 
+# I tried multi-threading and multi-processing for data gen since I had to generate close to 135GB of data. 
+#The faker produces output as a Dict which is converted to a CSV file here.
+#IMO, multi-proc worked better than multi-threading. 
+
+
+
+import multiprocessing
+import csv
+from faker import Faker
+fake = Faker()
+def proc1():
+    for i in range(420,520):
+        to_csv = [fake.profile() for x in range(10000)]
+        keys = to_csv[0].keys()
+        with open('file{}.csv'.format(i),'w',newline='') as output_file:
+            dict_writer = csv.DictWriter(output_file, keys)
+            dict_writer.writeheader()
+            dict_writer.writerows(to_csv)
+            
+def proc2():
+    for i in range(520,620):
+        to_csv = [fake.profile() for x in range(10000)]
+        keys = to_csv[0].keys()
+        with open('file{}.csv'.format(i),'w',newline='') as output_file:
+            dict_writer = csv.DictWriter(output_file, keys)
+            dict_writer.writeheader()
+            dict_writer.writerows(to_csv)
+
+            
+def proc3():
+    for i in range(620,720):
+        to_csv = [fake.profile() for x in range(10000)]
+        keys = to_csv[0].keys()
+        with open('file{}.csv'.format(i),'w',newline='') as output_file:
+            dict_writer = csv.DictWriter(output_file, keys)
+            dict_writer.writeheader()
+            dict_writer.writerows(to_csv)
+def proc4():
+    for i in range(720,820):
+        to_csv = [fake.profile() for x in range(10000)]
+        keys = to_csv[0].keys()
+        with open('file{}.csv'.format(i),'w',newline='') as output_file:
+            dict_writer = csv.DictWriter(output_file, keys)
+            dict_writer.writeheader()
+            dict_writer.writerows(to_csv)
+def proc5():
+    for i in range(820,920):
+        to_csv = [fake.profile() for x in range(10000)]
+        keys = to_csv[0].keys()
+        with open('file{}.csv'.format(i),'w',newline='') as output_file:
+            dict_writer = csv.DictWriter(output_file, keys)
+            dict_writer.writeheader()
+            dict_writer.writerows(to_csv)
+   
+            
+          
+p1 = multiprocessing.Process(target = proc1)
+p1.start()
+p2 = multiprocessing.Process(target = proc2)
+p2.start()
+p3 = multiprocessing.Process(target = proc3)
+p3.start()
+p4 = multiprocessing.Process(target = proc4)
+p4.start()
+p5 = multiprocessing.Process(target = proc5)
+p5.start()
