@@ -1,0 +1,5 @@
+The next task was to move the files to the AWS instance for testing on our ML model.
+In used FileZilla to create directories and move files to the EC-2 instance. 
+You will need the Public IP and the .pem file for access.
+If you are using FileZilla, you need to install putty-gen and convert the .pem to .ppk
+You can find another file on moving files using FileZilla. 
